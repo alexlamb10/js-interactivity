@@ -23,6 +23,7 @@ function addMovie(event){
 function deleteMovie(event){
     event.target.parentNode.remove();
     message.textContent = 'Movie deleted!'
+    revealMessage()
 }
 
 function crossOffMovie(event) {
@@ -32,6 +33,12 @@ function crossOffMovie(event) {
     }else{
         message.textContent = 'Movie Added back!'
     }
+    revealMessage()
+}
+
+function revealMessage(){
+    message.classList.remove('hide')
+    setTimeout(()=> {message.className = 'hide'}, 1000)
 }
 //Event Listeners
 addBtn.addEventListener('submit', addMovie);
