@@ -1,6 +1,7 @@
 console.log('Javascript is successfully connected!');
 //global selectors
 let addBtn = document.querySelector('form');
+let message = document.getElementById('message')
 
 // Functions
 function addMovie(event){
@@ -20,11 +21,17 @@ function addMovie(event){
 }
 
 function deleteMovie(event){
-    event.target.parentNode.remove()
+    event.target.parentNode.remove();
+    message.textContent = 'Movie deleted!'
 }
 
 function crossOffMovie(event) {
     event.target.classList.toggle('checked')
+    if(event.target.classList.contains('checked')){
+        message.textContent = 'Movie Watched!'
+    }else{
+        message.textContent = 'Movie Added back!'
+    }
 }
 //Event Listeners
 addBtn.addEventListener('submit', addMovie);
